@@ -4,12 +4,12 @@ Real Deal is an application that allows users to see merchant offers using augme
 
 ## Technology
 
-Python 3.6
-Django 1.11
-Django Rest Framework 3.6
-SQLite database
-Digital Ocean for deployment
-CloudFlare for DNS
+* Python 3.6
+* Django 1.11
+* Django Rest Framework 3.6
+* SQLite database
+* Digital Ocean for deployment
+* CloudFlare for DNS
 
 ## Setup
 
