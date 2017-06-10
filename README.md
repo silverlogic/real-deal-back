@@ -32,3 +32,7 @@ Run the development server
 ```
 
 You can now visit the development server at [http://localhost:8000](http://localhost:8000)
+
+## Deployment
+
+Visit [http://real-deal.tsl.io](http://real-deal.tsl.io) to see the backend in action!
