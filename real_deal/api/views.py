@@ -13,19 +13,32 @@ class OffersViewSet(viewsets.GenericViewSet):
                 'copy': 'Save $10 on purchases that exceed $50 when you use your Visa card',
                 'merchants': [
                     {
-                        'name': 'Bed Bath and Beyond'
+                        'name': 'Bath & Body Works'
                     }
                 ]
             },
             {
                 'title': 'Save $50',
-                'shortDescription': 'Save $30 on keg purchases',
-                'copy': 'Save $30 on the purchase of any keg of beer when you use your Visa card',
+                'shortDescription': 'Save $50 on keg purchases',
+                'copy': 'Save $50 on the purchase of any keg of beer when you use your Visa card',
                 'merchants': [
                     {
-                        'name': 'Bed Bath and Beyond'
+                        'name': 'Bath & Body Works'
                     }
                 ]
-            }
+            },
+            {
+                'title': 'Save 20%',
+                'shortDescription': 'Save 20% on your purchase!',
+                'copy': 'Save 20% on purchases that exceed $25 when you use your Visa card',
+                'merchants': [
+                    {
+                        'name': 'Walmart'
+                    },
+                    {
+                        'name': 'Something Store'
+                    }
+                ]
+            },
         ]
         return response.Response(data)
