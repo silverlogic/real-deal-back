@@ -40,7 +40,8 @@ INSTALLED_APPS = [
 
     'rest_framework',
 
-    'real_deal.api',
+    'real_deal.api.apps.ApiConfig',
+    'real_deal.offers.apps.OffersConfig',
 ]
 
 MIDDLEWARE = [
