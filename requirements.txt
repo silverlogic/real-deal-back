@@ -1,2 +1,5 @@
 Django==1.11.2
 djangorestframework==3.6.3
+django-environ==0.4.3
+
+requests==2.17.3
