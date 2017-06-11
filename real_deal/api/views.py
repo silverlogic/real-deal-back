@@ -34,7 +34,7 @@ class OffersViewSet(mixins.ListModelMixin,
             {
                 'title': offer['offerTitle'],
                 'short_description': offer['offerShortDescription']['text'],
-                'copy': offer['offerCopy']['text'],
+                'copy': offer_copy(offer['Title'], offer['offerCopy']['text']),
                 'merchants': [
                     {'name': merchant_name(merchant['merchant'])}
                     for merchant in offer['merchantList']
@@ -54,6 +54,16 @@ def merchant_name(name):
     elif name == 'Merchant Two':
         return 'Target'
     return 'Bath & Body Works'
+
+
+def offer_copy(offer_title, orig_copy):
+    if offer_title == 'Save $30':
+        return 'Save $30 on purchases that exceed $125 when you use your visa card'
+    elif offer_title == 'Save $40':
+        return 'Save $40 on purchases that exceed $150 when you use your visa card'
+    elif offer_title == 'Free Trial':
+        return 'Exlusive for Visa cardholders, call for availability'
+    return orig_copy
 
 
 class AlexaAskViewSet(viewsets.GenericViewSet):
