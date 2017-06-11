@@ -34,7 +34,7 @@ class OffersViewSet(mixins.ListModelMixin,
             {
                 'title': offer['offerTitle'],
                 'short_description': offer['offerShortDescription']['text'],
-                'copy': offer_copy(offer['title'], offer['offerCopy']['text']),
+                'copy': offer_copy(offer['offerTitle'], offer['offerCopy']['text']),
                 'merchants': [
                     {'name': merchant_name(merchant['merchant'])}
                     for merchant in offer['merchantList']
