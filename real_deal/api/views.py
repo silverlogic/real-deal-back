@@ -1,7 +1,7 @@
 from django.conf import settings
 
 import requests
-from rest_framework import viewsets, response, mixins
+from rest_framework import viewsets, response, mixins, generics
 
 from real_deal.offers.models import Offer
 
@@ -10,6 +10,7 @@ from .serializers import OfferSerializer
 
 ENGLISH = 1
 MONEY_OFF = 35
+FREE_TRIAL = 74
 
 
 class OffersViewSet(mixins.ListModelMixin,
@@ -40,7 +41,7 @@ class OffersViewSet(mixins.ListModelMixin,
                 ]
             }
             for offer in visa_data['Offers']
-
+            if offer['offerType'][0]['key'] in (MONEY_OFF, FREE_TRIAL)
         ]
 
         return response.Response(data)
@@ -49,7 +50,13 @@ class OffersViewSet(mixins.ListModelMixin,
 def merchant_name(name):
     '''Convert ugly name to pretty name!'''
     if name == 'Merchant One 1':
-        return 'Bath & Body Works'
-    elif name == 'Merchant Two':
         return 'Walmart'
-    return name
+    elif name == 'Merchant Two':
+        return 'Target'
+    return 'Bath & Body Works'
+
+
+class AlexaAskViewSet(viewsets.GenericViewSet):
+    def create(self, request, *args, **kwargs):
+        r = requests.post('http://localhost:5000/_ask', data=request.data)
+        return response.Response(r.json(), status=r.status_code)
